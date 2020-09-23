@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="3dce7776-2892-4115-b310-2fd9f802841d" last-modified="2020-09-23T15:57:20" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Informatii si urmarire AWB.exe (stealer)</short_description>
+  <authored_by>flriuli97@yahoo.com</authored_by>
+  <authored_date>2020-09-23T08:31:35</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="01db0d8d-328a-40ec-9a03-c4543727944f">
+      <IndicatorItem id="b30a223c-5fc2-486f-b92c-3d20e4e315cb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4d2a003d19c42d09a09f912983ea5d8a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="54ab9f3f-ee80-4567-b43b-ee6256dc0f73" condition="is">
+        <Context document="FileItem" search="FileItem/Sha1sum" type="mir" />
+        <Content type="string">2c7309dd2aaf8c3b0343901bf2d59a1d6e9fbbbd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="03d2aa66-d1ff-4c40-af0d-a9fd5b736515" condition="is">
+        <Context document="FileItem" search="FileItem/Sha256sum" type="mir" />
+        <Content type="string">19752b08a2b32e01b2295388b0d0ae8a70ca97934d463f99e16625c10d452b9a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="88f001fc-3391-4e66-ae12-39b0ff5809e3" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">Informatii si urmarire AWB.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="98a3b29c-e28c-4d33-be92-45fece818782" condition="is">
+        <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+        <Content type="int">927232</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fae51b80-7705-434d-ac5c-0621c395a209" condition="contains">
+        <Context document="DnsEntryItem" search="DnsEntryItem/Host" type="mir" />
+        <Content type="string">smtp.1and1.es</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a05051f-5184-4981-8b94-e680d6a3065c" condition="contains">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">212.227.15.158</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7fff8478-dd2a-4bb8-ab91-128575e09ff2" condition="is">
+        <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+        <Content type="int">587</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ddfd11dd-d7a5-4620-b345-13b52d585fd6" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/FileVersion" type="mir" />
+        <Content type="string">5.8.11.13</Content>
+      </IndicatorItem>
+      <IndicatorItem id="69de14d8-cab0-42ad-8176-582baefd1c12" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/InternalName" type="mir" />
+        <Content type="string">4bb.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f6c833f6-69c8-4fdc-8e75-71c82241ab5b" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/OriginalFilename" type="mir" />
+        <Content type="string">4bb.exe</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
