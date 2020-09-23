@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="4ee66f91-e5cc-46ee-a9cc-4f9d8a7e66e9" last-modified="2020-09-23T14:16:48" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Livrare prin curier FAN.exe (stealer)</short_description>
+  <authored_by>flriuli97@yahoo.com</authored_by>
+  <authored_date>2020-09-23T09:34:36</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="e3dba13f-54ff-4583-a953-11962beef2b7">
+      <IndicatorItem id="9fb6f3a3-f8a3-4552-a7e4-36be3ea1fe06" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">Livrare prin curier FAN.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6c66165c-ca4b-4ae2-9aeb-fb32731d262d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4d2a003d19c42d09a09f912983ea5d8a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="19563025-7397-4736-b1ad-ce92951b8a45" condition="is">
+        <Context document="FileItem" search="FileItem/Sha1sum" type="mir" />
+        <Content type="string">2c7309dd2aaf8c3b0343901bf2d59a1d6e9fbbbd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b59e0907-8fa4-4746-b3a7-2312717a091e" condition="is">
+        <Context document="FileItem" search="FileItem/Sha256sum" type="mir" />
+        <Content type="string">19752b08a2b32e01b2295388b0d0ae8a70ca97934d463f99e16625c10d452b9a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1d03459b-609b-41c4-91e6-af1f6064aadb" condition="is">
+        <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+        <Content type="int">878080</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f8052a3e-d6f2-4a92-8492-3701c9f151b6" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/Comments" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="d5326062-9c30-49ac-9b69-fbdbf1ef4dfe" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/FileDescription" type="mir" />
+        <Content type="string">?+6?{3????/9%7???$?4]1????5@2?!??&amp;</Content>
+      </IndicatorItem>
+      <IndicatorItem id="187a49d8-a6b1-48ff-bb63-b8e7df87cc66" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/FileVersion" type="mir" />
+        <Content type="string">1.2.2.3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="098456fa-04a6-4456-b0aa-84fef2fa39b7" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/InternalName" type="mir" />
+        <Content type="string">sbss.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d325c310-37fc-48a0-8080-463c04d07ce3" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/OriginalFilename" type="mir" />
+        <Content type="string">sbss.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9e59fca0-ae6c-4172-a61d-6e54e576f50e" condition="contains">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/ProductName" type="mir" />
+        <Content type="string">?+6?{3????/9%7???$?4]1????5@2?!??&amp;</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3bec528c-183c-44d7-a528-1cf210abdd34" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">smtp.1and1.es</Content>
+      </IndicatorItem>
+      <IndicatorItem id="05c78da7-4845-4f7b-9f5e-8ab6eac8dd8e" condition="contains">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">212.227.15.158</Content>
+      </IndicatorItem>
+      <IndicatorItem id="aa2c520d-fe98-4651-b746-34794545c025" condition="is">
+        <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+        <Content type="int">587</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
